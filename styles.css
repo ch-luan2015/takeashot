@@ -1,0 +1,152 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: #252526;
+  background-color: #fff; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  position: absolute; }
+
+.camera {
+  --width: 170px;
+  left: calc(50% - calc(var(--width) / 2));
+  top: 35%;
+  width: 170px;
+  height: 165px;
+  background-color: #474bd8;
+  border-radius: 25px;
+  z-index: 2;
+  animation: camera-animate 5s ease infinite; }
+@keyframes camera-animate {
+  0%,
+    45%,
+    55%,
+    100% {
+    transform: scale(1); }
+  50% {
+    transform: scale(0.9); } }
+  .camera .lens {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #3931ac;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .camera .lens-inner {
+    will-change: transform;
+    width: 42px;
+    height: 42px;
+    border-radius: 45px;
+    background-color: #fff;
+    animation: lens-animate 5s linear infinite; }
+@keyframes lens-animate {
+  0%,
+      100% {
+    transform: scale(1); }
+  5% {
+    transform: scale(1.1); }
+  10% {
+    transform: scale(0.85); }
+  15% {
+    transform: scale(1.1); }
+  20% {
+    transform: scale(0.85); }
+  25% {
+    transform: scale(1); } }
+  .camera .flash {
+    width: 40px;
+    height: 24px;
+    background-color: #f7ba1e;
+    border-radius: 25px;
+    top: 12px;
+    right: 15px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center; }
+    .camera .flash .light {
+      width: 420px;
+      height: 420px;
+      background-color: #fff;
+      border-radius: 50%;
+      opacity: 0;
+      animation: light-animate 5s ease infinite; }
+@keyframes light-animate {
+  0%,
+      45%,
+      100% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1);
+    opacity: 0.65; }
+  55% {
+    opacity: 0; } }
+  .camera .button {
+    width: 75px;
+    height: 15px;
+    background-color: #3931ac;
+    border-radius: 15px 15px 0 0;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -14px; }
+
+.photo {
+  --width: 100px;
+  width: 110px;
+  height: 115px;
+  background-color: #efefef;
+  left: calc(50% - calc(var(--width) / 2));
+  bottom: 50%;
+  z-index: 1;
+  animation: drop 5s ease infinite; }
+@keyframes drop {
+  0%,
+    66% {
+    bottom: 50%;
+    transform: rotate(0); }
+  70% {
+    bottom: 25%;
+    transform: rotate(0); }
+  80% {
+    bottom: 25%; }
+  90% {
+    transform: rotate(-15deg); }
+  100% {
+    bottom: -50%;
+    transform: rotate(-25deg); } }
+  .photo .frame {
+    width: 90px;
+    height: 75px;
+    background-color: #474bd8;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 13px;
+    overflow: hidden; }
+  .photo .sun {
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    background-color: #f7ba1e;
+    top: 18px;
+    left: 15px; }
+  .photo .rect {
+    left: 6px;
+    bottom: -54px;
+    width: 105px;
+    height: 76px;
+    transform: rotate(55deg);
+    background-color: #f7ba1e;
+    box-shadow: 21px -32px 0 #3931ac; }
+
+/*# sourceMappingURL=styles.css.map */
