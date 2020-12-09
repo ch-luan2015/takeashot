@@ -13,7 +13,7 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  box-sizing: border-box; // với giá trị border-box, chiều rộng và chiều cao hiện tại của thành phần đã bao gồm luôn phần border.
+  box-sizing: border-box; // Với giá trị border-box, chiều rộng và chiều cao hiện tại của thành phần đã bao gồm luôn phần border.
   overflow: hidden; //Khi chiều cao của box không đủ chứa text, thì text bị tràn sẽ được dấu đi.
   color: #252526;
   background-color: #fff;
@@ -25,9 +25,10 @@ body {
   position: absolute; // Giải phóng thành phần của nó với không gian, mặc định góc trái trên  top: 0 và left: 0.
 }
 //Mixin
+// Tạo hàm để sử dụng lại
 @mixin center-x() {
   left: 50%;
-  transform: translateX(-50%); //Xác định một dịch chuyển 2D theo trục X.
+  transform: translateX(-50%); //Dịch chuyển theo trục X -50%
 }
 
 @mixin center() {
@@ -37,14 +38,14 @@ body {
 }
 
 .camera {
-  --width: 170px;
-  left: calc(50% - calc(var(--width) / 2));
+  --width: 170px; // một biến width
+  left: calc(50% - calc(var(--width) / 2)); // tính toán (50% trái - 170px/2)
   top: 35%;
   width: 170px;
   height: 165px;
   background-color: $light-blue;
   border-radius: 25px;
-  z-index: 2;
+  z-index: 2; //Index càng cao càng chìm xuống , tức nền camera sẽ nằm dưới lens và lens-inner
 
   animation: camera-animate $duration ease infinite;
 
@@ -53,14 +54,14 @@ body {
     45%,
     55%,
     100% {
-      transform: scale(1);
+      transform: scale(1); //Từ 0 tới 100%  phóng đại nó lên x1
     }
     50% {
-      transform: scale(0.9);
+      transform: scale(0.9); // Từ 100% giảm xuống 50% thì x0.- nhỏ đi
     }
   }
   .lens {
-    @include center;
+    @include center; //Sử dụng mixin center
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -71,7 +72,7 @@ body {
   }
 
   .lens-inner {
-    will-change: transform;
+    will-change: transform; //Khai báo cho hiệu ứng mượt hơn
     width: 42px;
     height: 42px;
     border-radius: 45px;
@@ -196,7 +197,7 @@ body {
     background-color: $light-blue;
     @include center-x;
     top: 13px;
-    overflow: hidden;
+    overflow: hidden; //Khi text trong khung vượt quá kích thước div bao nó thì sẽ ẩn đi
   }
 
   .sun {
@@ -214,7 +215,7 @@ body {
     width: 105px;
     height: 76px;
     transform: rotate(55deg);
-    background-color: #f7ba1e;
+    background-color: #f7ba1e; //Vẽ cái hình vuông màu vàng rồi xoay nó thành hình tam giác
     box-shadow: 21px -32px 0 #3931ac;
   }
 }
